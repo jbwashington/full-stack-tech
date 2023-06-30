@@ -1,3 +1,4 @@
+import styles from '../styles/Home.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import cn from "classnames";
@@ -5,8 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { useInterval } from "../utils/use-interval";
-import Chatbot from "../components/Chatbot";
+// import Chatbot from "../components/Chatbot";
 import UserTestimonials from "../components/UserTestimonials";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faInfoCircle, faBox, faAddressCard } from '@fortawesome/free-solid-svg-icons'
+import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons'
+
 
 export default function Home() {
 
@@ -35,7 +40,8 @@ export default function Home() {
   );
 
   return (
-    <div className="container">
+    <div className="container-fluid">
+
     <Head>
     <title>Full Stack Tech LLC</title>
     <link rel="icon" href="/favicon.ico" />
@@ -43,11 +49,16 @@ export default function Home() {
 
     <main>
 
-    <section className="py-5 text-center">
-    <h2 className="display-4">Transform Your Business with AI-Powered Solutions</h2>
-    <p>Embrace the power of artificial intelligence to streamline operations, automate processes, and engage your customers in new and meaningful ways. At Full Stack Tech LLC, we pioneer the integration of advanced AI technologies like chatbots into your digital experience. Witness firsthand the potential of AI in transforming how your business operates.</p>
-    <Chatbot />
-    </section>
+    <header className={`${styles.headerSection} ${styles.py5} ${styles.callToAction} ${styles.bgDark}`}>
+    <div className="container">
+      <div className="row py-5">
+        <div className="col-10">
+          <h2 className={`${styles.heroTitle}`}>Transform Your Business with<br/> Data-Driven Solutions</h2>
+          <p className={`${styles.heroSubtitle}`}>Streamline operations, automate processes, and engage your customers in new and meaningful ways.</p>
+        </div>
+      </div>
+    </div>
+    </header>
 
     <section id="services" className="py-5">
     <div className="container">
@@ -64,16 +75,16 @@ export default function Home() {
     <div className="col-md-4">
     <div className="card mb-4 shadow-sm">
     <div className="card-body">
-    <h5 className="card-title">AI-Driven Business Automation</h5>
-    <p className="card-text">Drive efficiencies by leveraging AI. We incorporate technologies like chatGPT and Langchain to automate processes, increasing productivity and saving time.</p>
+    <h5 className="card-title">UI/UX Design</h5>
+    <p className="card-text">User interface design is the cover to your businesses book, and our goal is to find the balance between functaionality and design to keep your users engaged in your platform.</p>
     </div>
     </div>
     </div>
     <div className="col-md-4">
     <div className="card mb-4 shadow-sm">
     <div className="card-body">
-    <h5 className="card-title">Consulting & Training</h5>
-    <p className="card-text">We provide in-depth consulting services and training to ensure your team can leverage the full potential of the technology we build and implement for your business.</p>
+    <h5 className="card-title">Data Analysis and Visualization</h5>
+    <p className="card-text">Data is the new gold, but it takes strategic planning and implementation to draw insights from data, and that's where we excel.</p>
     </div>
     </div>
     </div>
@@ -104,7 +115,7 @@ export default function Home() {
     <section id="ai-in-action" className="py-5">
     <div className="container">
     <h2 className="text-center mb-5">AI in Action</h2>
-    <p>At Full Stack Tech LLC, we believe that AI can empower businesses of all sizes to increase productivity, improve customer satisfaction, and drive growth. Here are just a few of the ways our AI-powered solutions can help:</p>
+    <p className='lead py-5'>At Full Stack Tech LLC, we believe that AI can empower businesses of all sizes to increase productivity, improve customer satisfaction, and drive growth. Here are just a few of the ways our AI-powered solutions can help:</p>
     <div className="row">
     <div className="col-md-4">
     <h5>Automated Customer Support</h5>
@@ -119,9 +130,9 @@ export default function Home() {
     <p>AI can analyze large datasets to uncover patterns and trends, providing valuable insights. These insights can guide strategy, improve decision-making, and predict future trends, helping you to stay one step ahead of the competition.</p>
     </div>
     </div>
-    <p className="mt-4 text-center">
-    Ready to see how AI can transform your business?
-    <Link href="/contact">Contact us</Link> to discuss the possibilities.
+    <p className="mt-4 text-center lead">
+    Ready to see how we can transform your business and deliver consistent results throughout the process?
+    <Link href="/contact">  Contact us</Link> to discuss the possibilities.
     </p>
     </div>
     </section>
@@ -131,11 +142,11 @@ export default function Home() {
     <section id="about-us">
     <div className="text-center py-5">
     <h2 className="text-3xl font-semibold mb-4">About Full Stack Tech LLC</h2>
-    <p className="px-4">
-    Full Stack Tech is a proud 100% minority-owned business. We value diversity and inclusivity, not just because it's the right thing to do, but because we believe it makes us stronger and more competetive. Our team is comprised of an amazing mix of talent from all around the world, and we work hard to foster a culture of respect and open-mindedness.
+    <p className="px-4 lead">
+    Full Stack Tech is a proud 100% minority-owned business. We value cultural and neurological diversity and inclusivity, not just because it's the right thing to do, but because we believe it makes us stronger and more competetive. Our team is comprised of an amazing mix of talent from all around the world, and we work hard to foster a culture of respect and open-mindedness.
     </p>
-    <p className="px-4 mt-4">
-    We're always on the lookout for people who are constantly innovating and reimagining estabilshed processes. If you're someone who's curious, talented, and fun to work with, we'd love to hear from you.
+    <p className="px-4 mt-4 lead">
+    We're always on the lookout for people who are constantly innovating and reimagining the status quo. If you're someone who's curious, talented, and fun to work with, we'd love to hear from you.
     </p>
     <div className="mt-4">
     <Link href="/careers">
@@ -144,27 +155,99 @@ export default function Home() {
     </div>
     </div>
     </section>
-
     </main>
 
-    <footer className="py-5 text-center">
-    <h2 className="mb-4">Get In Touch</h2>
-    <form action="/api/contact" method="post">
-    <div className="mb-3">
-    <label htmlFor="name" className="form-label">Your Name</label>
-    <input type="text" className="form-control" id="name" name="name" required />
+    <footer className="py-5 bg-dark text-white">
+    <div className="container">
+    <div className="row">
+    <div className="col-lg-6">
+    <div className="row">
+    <div className="col-sm-6">
+    <h5>Site Map</h5>
+    <ul className="list-unstyled text-small">
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faHome} className="me-2" />
+    <a className="text-white" href="#">Home</a>
     </div>
-    <div className="mb-3">
-    <label htmlFor="email" className="form-label">Your Email</label>
-    <input type="email" className="form-control" id="email" name="email" required />
+    </li>
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+    <a className="text-white" href="#">About Us</a>
     </div>
-    <div className="mb-3">
-    <label htmlFor="message" className="form-label">Your Message</label>
-    <textarea className="form-control" id="message" name="message" rows="3" required></textarea>
+    </li>
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faBox} className="me-2" />
+    <a className="text-white" href="#">Services</a>
     </div>
-    <button type="submit" className="btn btn-primary">Send Message</button>
+    </li>
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faAddressCard} className="me-2" />
+    <a className="text-white" href="#">Contact</a>
+    </div>
+    </li>
+    </ul>
+    </div>
+    <div className="col-sm-6">
+    <h5>Social</h5>
+    <ul className="list-unstyled text-small">
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faFacebookF} className="me-2" />
+    <a className="text-white" href="#">Facebook</a>
+    </div>
+    </li>
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faTwitter} className="me-2" />
+    <a className="text-white" href="#">Twitter</a>
+    </div>
+    </li>
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faLinkedinIn} className="me-2" />
+    <a className="text-white" href="#">LinkedIn</a>
+    </div>
+    </li>
+    <li>
+    <div className="icon-text">
+    <FontAwesomeIcon icon={faInstagram} className="me-2" />
+    <a className="text-white" href="#">Instagram</a>
+    </div>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <p className="mt-4">© 2023 Full Stack Tech LLC. All Rights Reserved | Privacy Policy</p>
+    </div>
+    <div className="col-lg-6">
+    <div className="row justify-content-end">
+    <div className="col-lg-8">
+    <h5>Get Your Free Guide to Data-Driven Business Growth</h5>
+    <p className="text-light">Sign up for our newsletter to receive our exclusive guide packed with practical strategies for leveraging data to drive your business forward. This comprehensive PDF report includes:</p>
+    <ul>
+    <li>Insights from industry leaders on using AI and data analytics for business growth.</li>
+    <li>Case studies highlighting successful data-driven businesses.</li>
+    <li>Practical tips on implementing data strategies in your business.</li>
+    </ul>
+    <form>
+    <div className="form-group py-4">
+    <label htmlFor="email" className="form-label form-label-sm">Reach Out To Us</label>
+    <input type="email" className="form-control input-white" id="email" placeholder="Email Address"/>
+    <div className="light-line"></div>
+    </div>
+    <button type="submit" id="subscribeBtn" className="btn btn-primary">Subscribe</button>
     </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </footer>
+
     </div>
   )
 }

@@ -1,30 +1,46 @@
 import { useState } from "react";
+import { ChatOpenAI } from "langchain/chat_models/openai";
+import { HumanChatMessage, SystemChatMessage, AIChatMessage } from "langchain/schema";
+import {
+  SystemMessagePromptTemplate,
+  HumanMessagePromptTemplate,
+  ChatPromptTemplate,
+} from "langchain/prompts";
+import { Document } from "langchain/document";
 
 function Chatbot() {
   const [chatMessages, setChatMessages] = useState([]);
+  const chatPrompt = ChatPromptTemplate.fromPromptMessages([
+    SystemMessagePromptTemplate.fromTemplate(
+      "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know."
+    ),
+    new MessagesPlaceholder("history"),
+    HumanMessagePromptTemplate.fromTemplate("{input}"),
+  ]);
 
-  const handleButtonClick = async () => {
-    setChatMessages([]);
+  const chain = new ConversationChain({
+    memory: new BufferMemory({ returnMessages: true, memoryKey: "history" }),
+    prompt: chatPrompt,
+    llm: chat,
+  });
 
-    const response = await fetch("/api/streamDemo");
-    const stream = response.body;
-    const reader = stream.getReader();
+  const translationPrompt = ChatPromptTemplate.fromPromptMessages([
+    SystemMessagePromptTemplate.fromTemplate(
+      "You are a helpful assistant that translates {input_language} to {output_language}."
+    ),
+    HumanMessagePromptTemplate.fromTemplate("{text}"),
+  ]);
 
-    try {
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) {
-          break;
-        }
-        const decodedValue = new TextDecoder().decode(value);
-        setChatMessages((prevMessages) => [...prevMessages, decodedValue]);
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      reader.releaseLock();
-    }
-  };
+
+  const responseA = await chat.generatePrompt([
+    await translationPrompt.formatPromptValue({
+      input_language: "English",
+      output_language: "French",
+      text: "I love programming.",
+    }),
+  ]);
+
+  console.log(responseA);
 
   return (
     <>

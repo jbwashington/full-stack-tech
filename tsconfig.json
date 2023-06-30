@@ -23,6 +23,13 @@
     "**/*.ts",
     "**/*.tsx"
   ],
+  {
+    "compilerOptions": {
+      ...
+      "target": "ES2020", // or higher
+      "module": "nodenext",
+    }
+  },
   "exclude": [
     "node_modules"
   ]
