@@ -9,7 +9,7 @@ export default function Contact() {
     <div className="container">
     <div className="row">
     <div className="col-12">
-    <h2 className={`${styles.contactTitle}`}>Contact Us</h1>
+    <h2 className={`${styles.contactTitle}`}>Contact Us</h2>
     <p className={`${styles.contactSubtitle}`}>We'd love to hear from you!</p>
     <form action="/api/contact" method="post">
     <div className="mb-3">
