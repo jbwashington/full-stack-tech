@@ -52,7 +52,7 @@ export default function Home() {
     <header className={`${styles.headerSection} ${styles.py5} ${styles.callToAction} ${styles.bgDark}`}>
     <div className="container">
       <div className="row py-5">
-        <div className="col-10">
+        <div className="col-xs-12">
           <h2 className={`${styles.heroTitle}`}>Transform Your Business with<br/> Data-Driven Solutions</h2>
           <p className={`${styles.heroSubtitle}`}>Streamline operations, automate processes, and engage your customers in new and meaningful ways.</p>
         </div>

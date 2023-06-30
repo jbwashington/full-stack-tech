@@ -96,17 +96,15 @@
 .headerSection {
   height: 100vh;
   display: flex;
-  width: 100vw;
-  min-width: 100vw;
-  max-width: 100vw;
-  /* justify-content: center; */
-  /* align-items: center; */
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   flex-direction: column;
 }
 
 .heroTitle {
     color: #ea4b85;
-    font-size: 10rem;
+    font-size: clamp(1rem, 15vw, 10rem);
     font-family: 'Poppins', sans-serif;
     line-height: 1.1;
     background: linear-gradient(198deg,#ec3678 -11.13%,#ffc107 30%,#56d5f6 100%);
@@ -116,10 +114,10 @@
   }
 
 .heroSubtitle {
-  margin-top: 6rem;
+  margin-top: 4rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: clamp(1rem, 5vw, 2rem);
   line-height: 1.5;
   letter-spacing: -.5px;
   color: #fff;
