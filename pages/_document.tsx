@@ -27,7 +27,7 @@ export default function Document() {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Full Stack Tech - AI Solutions for Businesses" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&family=Epilogue:wght@300;400;600&display=swap" rel="stylesheet" />
     <link
       rel="stylesheet"
