@@ -8,6 +8,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { useInterval } from "../utils/use-interval";
 // import Chatbot from "../components/Chatbot";
 import UserTestimonials from "../components/UserTestimonials";
+import Subscribe from "../components/Subscribe";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faInfoCircle, faBox, faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons'
@@ -233,14 +234,7 @@ export default function Home() {
     <li>Case studies highlighting successful data-driven businesses.</li>
     <li>Practical tips on implementing data strategies in your business.</li>
     </ul>
-    <form>
-    <div className="form-group py-4">
-    <label htmlFor="email" className="form-label form-label-sm">Reach Out To Us</label>
-    <input type="email" className="form-control input-white" id="email" placeholder="Email Address"/>
-    <div className="light-line"></div>
-    </div>
-    <button type="submit" id="subscribeBtn" className="btn btn-primary">Subscribe</button>
-    </form>
+    <Subscribe />
     </div>
     </div>
     </div>
