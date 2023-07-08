@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import styles from '../styles/Subscribe.module.css';
 
 function Subscribe() {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ function Subscribe() {
       setMessage(response.data.message);
     } catch (error) {
       console.error(error);
-      setMessage("An error occurred while subscribing. Please try again.");
+      setMessage("An error occurred while subscribing, please try again.");
     }
   };
 
@@ -37,7 +38,7 @@ function Subscribe() {
       <button type="submit" id="subscribeBtn" className="btn btn-primary">
         Subscribe
       </button>
-      {message && <p>{message}</p>}
+      {message && <p className="pt-3">{message}</p>}
     </form>
   );
 };

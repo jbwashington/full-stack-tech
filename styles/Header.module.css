@@ -1,0 +1,40 @@
+.headerSection {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+}
+
+.heroTitle {
+    color: #ea4b85;
+    font-size: clamp(1rem, 6vw, 9rem);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.1;
+    background: linear-gradient(198deg,#ec3678 -11.13%,#ffc107 30%,#56d5f6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.heroSubtitle {
+  margin-top: 4rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 5vw, 2rem);
+  line-height: 1.5;
+  letter-spacing: -.5px;
+  color: #fff;
+  transition: all .15s ease-in-out .35s;
+}
+
+.py5 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.bgDark {
+  background-color: #333;
+}
+

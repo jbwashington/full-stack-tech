@@ -38,7 +38,7 @@ function Testimonials() {
   // Assuming you fetch your images and set the `images` state here
 
   return (
-    <section id="testimonials" className="py-5">
+    <section id="testimonials" className="pt-5">
       <div className="container">
         <h2 className="text-center mb-5">What Our Clients Say</h2>
         <div className="row">

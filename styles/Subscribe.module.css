@@ -1,0 +1,11 @@
+button#subscribeBtn {
+    color: #fff;
+    border-color: #fff;
+    border-radius: 0;
+    border-width: 3px;
+}
+button#subscribeBtn:hover {
+    color: #000;
+    background-color: transparent;
+    border: 0;
+}

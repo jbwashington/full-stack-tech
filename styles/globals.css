@@ -105,3 +105,14 @@ div.light-line {
     max-width: 1rem;
     color: white;
 }
+
+.container-fluid {
+  padding: 0;
+}
+
+button.btn.btn-primary:hover {
+  background: linear-gradient(350deg,rgb(255 0 112) -100%,#ffc107 35%,#56d5f6 100%);
+  color: #000;
+  border-color: black;
+  border-width: 0.2rem;
+}
