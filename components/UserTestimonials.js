@@ -6,7 +6,6 @@ import { useState } from "react";
 function Testimonials() {
   const [images, setImages] = useState([]);
   const [canShowImage, setCanShowImage] = useState(false);
-  const prompt = "van gogh style painting of a corporate headshot portrait of a person in business casual attire";
 
   const testimonials = [
     {
@@ -35,7 +34,6 @@ function Testimonials() {
     },
   ];
 
-  // Assuming you fetch your images and set the `images` state here
 
   return (
     <section id="testimonials" className="pt-5">
@@ -46,7 +44,7 @@ function Testimonials() {
             <div className="col-md-3" key={index}>
               <div className="card">
                 <Image
-                  alt={`Dall-E representation of: ${prompt}`}
+                  alt={`Professional black woman headshot`}
                   className={cn("card-img-top rounded-circle mx-auto d-block mt-3", {
                     "opacity-100": canShowImage,
                   })}
