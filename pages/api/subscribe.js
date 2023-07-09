@@ -1,5 +1,4 @@
 const mailgun = require('mailgun.js');
-const formData = require('form-data');
 
 const DOMAIN = process.env.MAILGUN_DOMAIN;
 
