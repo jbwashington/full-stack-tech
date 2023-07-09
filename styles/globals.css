@@ -116,3 +116,10 @@ button.btn.btn-primary:hover {
   border-color: black;
   border-width: 0.2rem;
 }
+
+button.navbar-toggler.collapsed {
+    margin-right: 1rem;
+}
+.navbar-toggler {
+  border: none;
+}

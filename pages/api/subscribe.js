@@ -1,16 +1,22 @@
-const Mailgun = require('mailgun.js');
+const mailgun = require('mailgun.js');
 const formData = require('form-data');
+
+const mg = mailgun.client({
+    username: 'api',
+    key: process.env.MAILGUN_API_KEY,
+    public_key: process.env.MAILGUN_PUBLIC_KEY,
+    host: 'api.mailgun.net',
+    endpoint: '/v3', // API version
+    protocol: 'https',
+    port: 443,
+    timeout: 10000, // max request time, default is 10 seconds
+});
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { email } = req.body;
 
     try {
-      const mailgun = new Mailgun(FormData);
-      const mg = mailgun.client({
-        username: "api",
-        key: process.env.MAILGUN_API_KEY
-      });
 
       const response = await mg.messages.create(process.env.MAILGUN_DOMAIN, {
         from: `Full Stack Tech Team <noreply@${process.env.MAILGUN_DOMAIN}>`,

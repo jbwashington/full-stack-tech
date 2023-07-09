@@ -1,0 +1,64 @@
+.logoButton {
+  /* Styles for the logo button */
+}
+
+.navMenu {
+  /* Styles for the navigation menu */
+}
+
+.navList {
+  /* Styles for the navigation list */
+}
+
+.slide-enter {
+  transform: translateY(-100%);
+}
+
+.slide-enter-active {
+  transform: translateY(0);
+  transition: transform 350ms;
+}
+
+.slide-exit {
+  transform: translateY(0);
+}
+
+.slide-exit-active {
+  transform: translateY(-100%);
+  transition: transform 350ms;
+}
+
+.logoWrapper {
+  /* Styles for the logo wrapper */
+  width: 5rem;
+}
+
+button.logoButton {
+  /* Styles for the logo button */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2rem; height: 100%;
+  width: 100%;
+}
+
+.searchInput {
+  max-width: 200px; /* Adjust this value to your preference */
+}
+
+.navLink {
+  white-space: nowrap;
+}
+
+/* Other styles */
+
+.searchInput {
+  width: 0;
+  transition: width 0.5s;
+}
+
+.searchInputActive {
+  width: 200px; /* Adjust this as needed */
+}
+
+/* Other styles */
