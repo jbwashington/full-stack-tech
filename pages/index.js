@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import { useState } from "react";
 import Header from "../components/Header";
-import Navigation from "../components/Navigation";
+// import Navigation from "../components/Navigation";
 import Services from "../components/Services";
 import UserTestimonials from "../components/UserTestimonials";
 import UniqueValueProposition from "../components/UniqueValueProposition";
@@ -24,7 +24,6 @@ export default function Home() {
     <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Navigation />
     <main>
     <Header />
     <Services />
