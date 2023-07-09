@@ -1,16 +1,19 @@
 const mailgun = require('mailgun.js');
 const formData = require('form-data');
 
-const mg = mailgun.client({
-    username: 'api',
-    key: process.env.MAILGUN_API_KEY,
-    public_key: process.env.MAILGUN_PUBLIC_KEY,
-    host: 'api.mailgun.net',
-    endpoint: '/v3', // API version
-    protocol: 'https',
-    port: 443,
-    timeout: 10000, // max request time, default is 10 seconds
+const DOMAIN = process.env.MAILGUN_DOMAIN;
+
+const mg = mailgun({
+  apiKey: process.env.MAILGUN_API_KEY,
+  domain: process.env.MAILGUN_DOMAIN
 });
+
+const data = {
+  from: `Full Stack Tech Team <noreply@${process.env.MAILGUN_DOMAIN}>`,
+  to: [email],
+  subject: "Your Requested Free Guide to Data-Driven Business Growth",
+  template: "Guide to Data-Driven Business Growth",
+}
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -18,12 +21,10 @@ export default async function handler(req, res) {
 
     try {
 
-      const response = await mg.messages.create(process.env.MAILGUN_DOMAIN, {
-        from: `Full Stack Tech Team <noreply@${process.env.MAILGUN_DOMAIN}>`,
-        to: [email],
-        subject: "Your Requested Free Guide to Data-Driven Business Growth",
-	template: "Guide to Data-Driven Business Growth",
-      });
+      const response = await mg.messages().send(data, function (error, body) {
+        console.log(body);
+      }
+      );
 
       if (response) {
         res.status(200).json({ message: "You have been subscribed successfully!" });
