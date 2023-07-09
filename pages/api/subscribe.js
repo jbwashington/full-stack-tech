@@ -21,13 +21,8 @@ export default async function handler(req, res) {
       const response = await mg.messages.create(process.env.MAILGUN_DOMAIN, {
         from: `Full Stack Tech Team <noreply@${process.env.MAILGUN_DOMAIN}>`,
         to: [email],
-        subject: "Welcome to Full Stack Tech!",
-        text: "Welcome to Full Stack Tech!",
-        html: `
-            <h1>Welcome to our newsletter!</h1>
-            <p>We're still building this out so please stay posted!</p>
-            <p>--The Full Stack Tech NYC Team</p>
-        `,
+        subject: "Your Requested Free Guide to Data-Driven Business Growth",
+	template: "Guide to Data-Driven Business Growth",
       });
 
       if (response) {
