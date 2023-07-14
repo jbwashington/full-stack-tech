@@ -17,7 +17,7 @@
     "classnames": "^2.3.2",
     "langchain": "^0.0.98",
     "lru-cache": "^10.0.0",
-    "mailgun.js": "^9.1.2",
+    "mailgun.js": "^9.2.0",
     "next": "latest",
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
